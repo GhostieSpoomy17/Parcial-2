@@ -25,31 +25,33 @@
 print("-------------------------------------")
 print()
 
-quintil = int(input("Buenas. ¿A qué quintil pertenece? "))
+quintil = int(input("Buenas. ¿A qué quintil pertenece? 1 a 5: "))
+empleabilidad1 = int(input("Responda con 1 para indicar que está empleado o 2 para responder que está desempleado. "))
+edad = int(input("Indique su edad en años: "))
+subsidio = 0
 
-if quintil == 1 or 2:
-    print()
-    print("Entendido. Está usted empleado o desempleado?")
-    empleabilidad1 = int(input("Responda con 1 para indicar que está empleado o 2 para responder que está desempleado. "))
+# Logica para asignar bono
+if quintil == 1 or quintil == 2:
     if empleabilidad1 == 1:
-        print()
-        print("Su subsidio es de 8.000.")
+        subsidio = 8000
     elif empleabilidad1 == 2:
-        print()
-        print("Su subsidio es de 10.000.")
+        subsidio = 10000
 
 if quintil == 3:
-    print()
-    print("Entendido. Está usted empleado o desempleado?")
-    empleabilidad2 = int(input("Responda con 1 para indicar que está empleado o 2 para responder que está desempleado. "))
-    if empleabilidad2 == 1:
-        print()
-        print("Su subsidio es de 4.000.")
-    elif empleabilidad2 == 2:
-        print()
-        print("Su subsidio es de 6.000.")
+    if empleabilidad1 == 1:
+        subsidio = 4000
+    elif empleabilidad1 == 2:
+        subsidio = 6000
+    
+if quintil == 4 or quintil == 5:
+    subsidio = 1500
 
-if quintil == 4 or 5:
-    print()
-    print("Si usted se encuentra en el quintil 4 o 5, su subsidio será de 1.500 independiente")
-    print("de si está empleado o desempleado.")
+if edad >= 65:
+    subsidio = subsidio + 3000
+
+print()
+
+print("Su bono asignado es ", subsidio)
+
+print()
+print("-------------------------------------")
